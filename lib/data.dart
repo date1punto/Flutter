@@ -95,7 +95,9 @@ class Data {
   static List<String> defaultActions = ["open", "close"];
   static String defaultName = "new group";
   static String defaultDescription = "";
-
+  static String defaultUserName="new name";
+  static String defaultCredential="0000";
+/*
   static Map<String, String> images = {
     'ana': 'https://transfer.sh/3iRwt5NrxB/ana.png',
     'aureli': 'https://transfer.sh/uJmCCYfIyo/aureli.png',
@@ -107,6 +109,19 @@ class Data {
     'eulalia': 'https://transfer.sh/1RBiljKI8T/eulalia.png',
     'esteve': 'https://transfer.sh/waTqvGuqyr/esteve.png',
     'new user': 'https://transfer.sh/xQ9fjTdhAK/new_user.png',
+  };
+*/
+  static Map<String, String> images = {
+    'ana': 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fmireiadarder.com%2Fmenopausia-mujer-vieja%2F&psig=AOvVaw3PvOx2NROtWRicOjhGEY7B&ust=1700765890013000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJCgoOek2IIDFQAAAAAdAAAAABAp',
+    'aureli': 'https://www.apmadrid.es/wp-content/uploads/2023/06/auremartin.webp',
+    'manel': 'https://fotografias.antena3.com/clipping/cmsimages02/2020/09/26/374A4113-3C4C-41C1-9304-2D2466883E39/62.jpg',
+    'miquel': 'https://cadena100-cdnmed.cadena100.es/resources/jpg/1/6/1610646475661.jpg',
+    'maria': 'https://www.jolihouse.com/wp-content/uploads/2013/10/blue-eyes-leaning-forward-1024x682.jpg',
+    'maure': 'https://www.pbs.org/wnet/americanmasters/files/2014/04/Chico-Mendes-16x9.jpg',
+    'eva': 'https://i.pinimg.com/736x/34/44/3d/34443df312de00271d1b773c780f6e96.jpg',
+    'eulalia': 'https://th.bing.com/th/id/OIP.mdVtchY6Xdj-b8ECMHBCigHaEK?rs=1&pid=ImgDetMain',
+    'esteve': 'https://www.kaizengroup.es/wp-content/uploads/bfi_thumb/stevejobsbig-35j7nynk8topdvfvsv3im8.jpg',
+    'new user': 'https://pluspng.com/img-png/user-png-icon-big-image-png-2240.png',
   };
   // curl -H "Max-Days: 180" --upload-file ./esteve.png https://transfer.sh/esteve.png
 }

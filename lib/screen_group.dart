@@ -3,12 +3,20 @@ import 'package:flutter/material.dart';
 import 'data.dart';
 import 'page_action.dart';
 import 'page_schedule.dart';
+import 'page_users.dart';
 
-class ScreenGroup extends StatelessWidget {
+class ScreenGroup extends StatefulWidget {
   UserGroup userGroup;
 
   // Constructor que recibe el grupo de usuarios
   ScreenGroup({super.key, required this.userGroup});
+
+  @override
+  ScreenGroupState createState() => ScreenGroupState();
+}
+
+
+class ScreenGroupState extends State<ScreenGroup>{
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +24,7 @@ class ScreenGroup extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Theme.of(context).colorScheme.onPrimary,
-        title: Text('Group ${userGroup.name}'),
+        title: Text('Group ${widget.userGroup.name}'),
       ),
       body: Center(
         child: GridView.count(
@@ -37,7 +45,7 @@ class ScreenGroup extends StatelessWidget {
                         onPressed: (){
                           Navigator.of(context)
                               .push(MaterialPageRoute(
-                              builder:(context)=> PageInfo(userGroup: userGroup),
+                              builder:(context)=> PageInfo(userGroup: widget.userGroup, anterior:this),
                           ),
                           );
                         },
@@ -59,7 +67,7 @@ class ScreenGroup extends StatelessWidget {
                           onPressed: (){
                             Navigator.of(context)
                                 .push(MaterialPageRoute(
-                              builder:(context)=> PageSchedule(userGroup: userGroup),
+                              builder:(context)=> PageSchedule(userGroup: widget.userGroup),
                             ),
                             );
                           },
@@ -116,7 +124,12 @@ class ScreenGroup extends StatelessWidget {
                       IconButton(
                         iconSize: 100,
                         icon: const Icon(Icons.manage_accounts),
-                        onPressed: (){},//es necesario aunque no haga nada
+                        onPressed: (){ Navigator.of(context)
+                            .push(MaterialPageRoute(
+                          builder:(context)=> PageUsers(userGroup: widget.userGroup),
+                          )
+                        );
+                        },//es necesario aunque no haga nada
                       ),
                       const Text("Users")
                     ]

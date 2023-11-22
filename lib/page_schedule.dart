@@ -113,6 +113,7 @@ class PageScheduleState extends State<PageSchedule>
                 IconButton(onPressed: () {
                   _pickStartDate(context).then((_)
                   {
+                    dataAux=DateTime(dataAux.year, dataAux.month, dataAux.day, 0, 0);
                     if(dataAux.isAfter( widget.userGroup.schedule.toDate))
                     {
                       _showAlert(context);
@@ -138,9 +139,10 @@ class PageScheduleState extends State<PageSchedule>
                 IconButton(onPressed: () {
                   _pickStartDate(context).then((_)
                   {
-                    if(dataAux.isAfter( widget.userGroup.schedule.toDate))
+                    dataAux=DateTime(dataAux.year, dataAux.month, dataAux.day, 23, 59);
+                    if(dataAux.isAfter(widget.userGroup.schedule.fromDate))
                     {
-                      widget.userGroup.schedule.fromDate = dataAux;
+                      widget.userGroup.schedule.toDate = dataAux;
                       setState(() {});
                     }
                     else {
@@ -148,7 +150,7 @@ class PageScheduleState extends State<PageSchedule>
                     }
                   }
                   );
-                   }
+                }
                     , icon: Icon(Icons.calendar_month))
               ],
             ),
@@ -214,7 +216,7 @@ class PageScheduleState extends State<PageSchedule>
                 IconButton(onPressed: () { _pickStartTime(context).then((_){
                   DateTime aux=addHourToDateTime(widget.userGroup.schedule.toDate, timeAux);
                   bool canBe=true;
-                  if(widget.userGroup.schedule.toDate.isAfter(aux))
+                  if(widget.userGroup.schedule.fromDate.isAfter(aux))
                   {
                     _showAlert(context);
                     canBe=false;
