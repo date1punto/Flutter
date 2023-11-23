@@ -89,7 +89,7 @@ class ScreenGroupState extends State<ScreenGroup>{
                         onPressed: (){
                           Navigator.of(context)
                               .push(MaterialPageRoute(
-                              builder:(context)=> PageAction(),
+                              builder:(context)=> PageAction(group:widget.userGroup),
                           ),
                           );
                         },//es necesario aunque no haga nada
@@ -129,7 +129,7 @@ class ScreenGroupState extends State<ScreenGroup>{
                           builder:(context)=> PageUsers(userGroup: widget.userGroup),
                           )
                         );
-                        },//es necesario aunque no haga nada
+                        },
                       ),
                       const Text("Users")
                     ]

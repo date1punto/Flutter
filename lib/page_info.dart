@@ -49,7 +49,7 @@ class PageInfoState extends State<PageInfo> {
                       )
                    ),
                   const Padding(
-                    padding:EdgeInsets.symmetric(vertical:100)//posar padding vertical
+                    padding:EdgeInsets.symmetric(vertical:40)//posar padding vertical
                   ),
                   ElevatedButton(
                       child: const Text("Submit"),

@@ -29,7 +29,7 @@ class _ScreenListPageUsers extends State<PageUsers> {
         onPressed: () {
           User newUser = User(Data.defaultUserName, Data.defaultCredential+"$contador");
           contador++;//para que no tengan mismo credencial
-          widget.userGroup.users.add(newUser);
+          users.add(newUser);
           setState(() {});
         },
       ),
@@ -51,11 +51,12 @@ class _ScreenListPageUsers extends State<PageUsers> {
   }
 
   Widget _buildRow(User user, int index) {
+    String imatgePredefinida=  Data.images["new user"]!;
     return ListTile(
       leading: CircleAvatar(foregroundImage:
-      NetworkImage(Data.images[user.name.toLowerCase()]!)),
+      NetworkImage(Data.images[user.name.toLowerCase()]?? imatgePredefinida)),
       title: Text(user.name),
-      trailing: Text('${user.credential}'),
+      trailing: Text(user.credential),
       onTap: () {
         Navigator.of(context)
             .push(MaterialPageRoute<void>(
